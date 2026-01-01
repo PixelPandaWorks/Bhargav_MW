@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Video, Palette, Code, Cpu, Search, Calendar, Plus } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 const services = [
   {
@@ -39,9 +40,9 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-background relative overflow-hidden">
+    <section id="services" className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center mb-24 gap-6">
+        <div className="flex flex-col items-center text-center mb-16 md:mb-24 gap-6">
           <div className="max-w-2xl">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -57,7 +58,39 @@ export function Services() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {services.map((service, index) => (
+                <CarouselItem key={service.title} className="basis-1/2 pl-4">
+                  <div className="h-full border border-border bg-background p-6 flex flex-col justify-between">
+                    <div>
+                      <div className="size-10 flex items-center justify-center mb-6 border border-border">
+                        <service.icon className="size-4 text-foreground/70" />
+                      </div>
+                      <h3 className="text-xl font-heading font-light mb-4">{service.title}</h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed font-light text-xs">{service.description}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center gap-2 mt-8">
+              <CarouselPrevious className="static translate-y-0 translate-x-0" />
+              <CarouselNext className="static translate-y-0 translate-x-0" />
+            </div>
+          </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -67,7 +100,7 @@ export function Services() {
               transition={{ delay: index * 0.1 }}
             >
               <Card className="h-full border-0 bg-background rounded-none hover:bg-muted/50 transition-colors group">
-                <CardContent className="p-12">
+                <CardContent className="p-8 md:p-12">
                   <div className="size-10 flex items-center justify-center mb-10 border border-border">
                     <service.icon className="size-4 text-foreground/70" />
                   </div>

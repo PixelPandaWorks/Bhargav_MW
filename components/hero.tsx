@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+    <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -20,7 +20,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-8xl lg:text-9xl font-heading font-light leading-[1.1] mb-40 text-foreground"
+            className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-heading font-light leading-[1.1] mb-24 md:mb-40 text-foreground"
           >
             Creative <span className="italic">Expert</span>
           </motion.h1>
@@ -73,7 +73,7 @@ export function Hero() {
             alt="Creative Expert Hero"
             width={300}
             height={400}
-            className="object-contain w-[280px] md:w-[350px] grayscale"
+            className="object-contain w-[200px] sm:w-[280px] md:w-[350px] grayscale"
             priority
           />
         </motion.div>

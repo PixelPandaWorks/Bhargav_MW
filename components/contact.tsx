@@ -5,9 +5,9 @@ import { Mail, Github, Twitter, Linkedin, ArrowUpRight, Send } from "lucide-reac
 
 export function Contact() {
   return (
-    <section id="contact" className="py-32 bg-background border-t border-border">
+    <section id="contact" className="py-20 md:py-32 bg-background border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-16 md:mb-24">
           
           {/* Left Column: Resume */}
           <motion.div 
@@ -19,7 +19,7 @@ export function Contact() {
             <h2 className="text-4xl md:text-5xl font-heading font-light mb-8 text-center lg:text-left">
               Resume
             </h2>
-            <div className="group relative aspect-[4/3] w-full bg-muted/30 rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-colors p-8 flex items-center justify-center">
+            <div className="group relative aspect-[4/3] w-full bg-muted/30 rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-colors p-6 md:p-8 flex items-center justify-center">
                {/* Resume Placeholder / Content */}
                <div className="text-center space-y-4">
                   <div className="text-3xl font-heading font-light">Creative Expert</div>
@@ -135,7 +135,7 @@ export function Contact() {
 
       </div>
 
-      <footer className="mt-24 py-16 border-t border-border">
+      <footer className="mt-16 md:mt-24 py-10 md:py-16 border-t border-border">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-[10px] font-bold text-muted-foreground tracking-[0.3em] uppercase">
             &copy; 2025 MINIMALIST.EXPERT — REFINED CRAFT

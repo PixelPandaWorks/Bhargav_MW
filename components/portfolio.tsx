@@ -1,100 +1,114 @@
 "use client"
 
-import * as React from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
-const categories = ["All", "Video", "Design", "Web", "AI", "Events"]
 
-const projects = [
-  {
-    title: "Cinematic Narrative",
-    category: "Video",
-    image: "/cinematic-video-production.jpg",
-    tags: ["EDITING", "GRADING"],
-  },
-  {
-    title: "Minimal Identity",
-    category: "Design",
-    image: "/minimalist-brand-design.jpg",
-    tags: ["BRANDING", "UI"],
-  },
-  {
-    title: "Digital Platform",
-    category: "Web",
-    image: "/modern-website-interface.jpg",
-    tags: ["NEXT.JS", "REACT"],
-  },
-  {
-    title: "Neural Interface",
-    category: "AI",
-    image: "/artificial-intelligence-interface.jpg",
-    tags: ["AUTOMATION", "LLM"],
-  },
-  {
-    title: "Sonic Experience",
-    category: "Events",
-    image: "/concert-event-management.jpg",
-    tags: ["LOGISTICS", "MOTION"],
-  },
-  {
-    title: "Motion Systems",
-    category: "Video",
-    image: "/abstract-motion-graphics.jpg",
-    tags: ["3D", "AE"],
-  },
-]
 
 export function Portfolio() {
-  const [filter, setFilter] = React.useState("All")
-
-  const filteredProjects = projects.filter((p) => filter === "All" || p.category === filter)
+  const categories = [
+    {
+      title: "Video",
+      href: "/videos",
+      image: "/cinematic-video-production.jpg",
+      description: "Narrative & Commercial",
+    },
+    {
+      title: "Graphics",
+      href: "/graphics",
+      image: "/minimalist-brand-design.jpg",
+      description: "Brand Identity & UI",
+    },
+    {
+      title: "Web",
+      href: "/web",
+      image: "/modern-website-interface.jpg",
+      description: "Digital Platforms",
+    },
+    {
+      title: "AI",
+      href: "/ai",
+      image: "/artificial-intelligence-interface.jpg",
+      description: "Automation & LLMs",
+    },
+    {
+      title: "Events",
+      href: "/events",
+      image: "/concert-event-management.jpg",
+      description: "Logistics & Motion",
+    },
+  ]
 
   return (
-    <section id="work" className="py-32 bg-background">
+    <section id="work" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-6">
-        <div className="mb-24 text-center">
+        <div className="mb-16 md:mb-24 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-heading font-light mb-12"
           >
-            Curated <span className="italic">Projects.</span>
+            Curated <span className="italic">Work.</span>
           </motion.h2>
-
-          <div className="flex flex-wrap gap-6 justify-center">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`text-[10px] uppercase tracking-[0.3em] font-bold pb-2 border-b transition-all ${
-                  filter === cat ? "border-foreground text-foreground" : "border-transparent text-muted-foreground"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="group relative"
-              >
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {categories.map((category) => (
+                <CarouselItem key={category.title} className="basis-1/2 pl-4">
+                  <Link href={category.href} className="group block relative h-full">
+                    <div className="aspect-[3/4] relative overflow-hidden bg-muted grayscale filter transition-all duration-700 ease-in-out border border-border">
+                      <Image
+                        src={category.image || "/placeholder.svg"}
+                        alt={category.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <h3 className="text-xl font-heading font-light mb-1">{category.title}</h3>
+                      <p className="text-[10px] text-muted-foreground font-light tracking-wide uppercase">
+                        {category.description}
+                      </p>
+                    </div>
+                  </Link>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center gap-2 mt-8">
+              <CarouselPrevious className="static translate-y-0 translate-x-0" />
+              <CarouselNext className="static translate-y-0 translate-x-0" />
+            </div>
+          </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-12">
+          {categories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Link href={category.href} className="group block relative">
                 <div className="aspect-[3/4] relative overflow-hidden bg-muted grayscale hover:grayscale-0 transition-all duration-700 ease-in-out border border-border">
                   <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                    src={category.image || "/placeholder.svg"}
+                    alt={category.title}
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
@@ -105,26 +119,22 @@ export function Portfolio() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-8">
-                  <div className="flex items-center gap-4 mb-4">
+                <div className="mt-8 text-center md:text-left">
+                  <div className="flex items-center gap-4 mb-4 justify-center md:justify-start">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                      {project.category}
+                      Explore
                     </span>
-                    <div className="h-px flex-1 bg-border" />
+                    <div className="h-px w-12 bg-border" />
                   </div>
-                  <h3 className="text-2xl font-heading font-light mb-4">{project.title}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[9px] font-bold tracking-widest text-muted-foreground/60">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <h3 className="text-3xl font-heading font-light mb-2">{category.title}</h3>
+                  <p className="text-sm text-muted-foreground font-light tracking-wide uppercase">
+                    {category.description}
+                  </p>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

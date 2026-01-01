@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${cormorantGaramond.variable} ${inter.variable} font-body antialiased selection:bg-muted cursor-none`}
+        className={`${cormorantGaramond.variable} ${inter.variable} font-body antialiased selection:bg-muted md:cursor-none`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <CustomCursor />

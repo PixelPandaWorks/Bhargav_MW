@@ -24,9 +24,9 @@ const reasons = [
 
 export function About() {
   return (
-    <section id="about" className="py-32 bg-background border-t border-border">
+    <section id="about" className="py-20 md:py-32 bg-background border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center mb-24">
+        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export function About() {
               precision, and a commitment to creating digital experiences that are as functional as they are beautiful.
             </p>
 
-            <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto mb-24 overflow-hidden grayscale group border border-border">
+            <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto mb-16 md:mb-24 overflow-hidden grayscale group border border-border">
               <Image
                 src="/my_image.jpg"
                 alt="Creative Expert Profile"
@@ -60,7 +60,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-12 bg-background flex flex-col items-center text-center group hover:bg-muted/50 transition-colors"
+              className="p-8 md:p-12 bg-background flex flex-col items-center text-center group hover:bg-muted/50 transition-colors"
             >
               <div className="size-10 border border-border flex items-center justify-center mb-8">
                 <reason.icon className="size-4 text-foreground/50" />
