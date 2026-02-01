@@ -25,10 +25,11 @@ export function Navbar() {
   const backgroundColor = useTransform(scrollY, [0, 100], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"])
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Work", href: "#work" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Start", href: "/" },
+    { name: "Services", href: "/#services" },
+    { name: "Work", href: "/#work" },
+    { name: "About", href: "/#about" },
+    { name: "Contact", href: "/#contact" },
   ]
 
   return (

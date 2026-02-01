@@ -24,13 +24,13 @@ export function Portfolio() {
     },
     {
       title: "Web",
-      href: "/web",
+      href: "https://github.com/PixelPandaWorks",
       image: "/modern-website-interface.jpg",
       description: "Digital Platforms",
     },
     {
       title: "AI",
-      href: "/ai",
+      href: "https://github.com/PixelPandaWorks",
       image: "/artificial-intelligence-interface.jpg",
       description: "Automation & LLMs",
     },

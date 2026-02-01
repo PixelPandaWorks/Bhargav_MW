@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Github, Twitter, Linkedin, ArrowUpRight, Send } from "lucide-react"
+import { Mail, Github, Twitter, Linkedin, ArrowUpRight, Instagram } from "lucide-react"
 
 export function Contact() {
   return (
@@ -66,7 +66,7 @@ export function Contact() {
               </a>
 
               {/* Twitter / X */}
-              <a href="#" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
+              <a href="https://x.com/bhargavmwaghela" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
                 <div className="flex items-center gap-4">
                    <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
                     <Twitter className="size-6 text-foreground" />
@@ -81,7 +81,7 @@ export function Contact() {
               </a>
 
               {/* LinkedIn */}
-              <a href="#" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
+              <a href="https://www.linkedin.com/in/bhargav-waghela-a00821394" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
                  <div className="flex items-center gap-4">
                    <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
                     <Linkedin className="size-6 text-foreground" />
@@ -96,7 +96,7 @@ export function Contact() {
               </a>
 
               {/* GitHub */}
-              <a href="#" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
+              <a href="https://github.com/PixelPandaWorks" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
                  <div className="flex items-center gap-4">
                    <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
                     <Github className="size-6 text-foreground" />
@@ -110,14 +110,14 @@ export function Contact() {
                 </div>
               </a>
 
-               {/* Telegram */}
-              <a href="#" className="col-span-1 sm:col-span-2 group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
+               {/* Instagram */}
+              <a href="https://instagram.com/bhaargaav_" className="col-span-1 sm:col-span-2 group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
                  <div className="flex items-center gap-4">
                    <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                    <Send className="size-6 text-foreground" />
+                    <Instagram className="size-6 text-foreground" />
                   </div>
                   <div>
-                    <div className="font-bold text-sm mb-1">Telegram</div>
+                    <div className="font-bold text-sm mb-1">Instagram</div>
                     <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
                       Open <ArrowUpRight className="size-3" />
                     </div>
@@ -130,7 +130,7 @@ export function Contact() {
         </div>
 
         <div className="max-w-xl mx-auto text-center mb-0">
-             <p className="text-sm text-muted-foreground">Prefer a direct message? Reach out on <a href="#" className="underline hover:text-foreground">Twitter</a> or <a href="#" className="underline hover:text-foreground">LinkedIn</a></p>
+             <p className="text-sm text-muted-foreground">Prefer a direct message? Reach out on <a href="https://x.com/bhargavmwaghela" className="underline hover:text-foreground">Twitter</a> or <a href="https://www.linkedin.com/in/bhargav-waghela-a00821394" className="underline hover:text-foreground">LinkedIn</a></p>
         </div>
 
       </div>

@@ -1,78 +1,75 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion, useSpring, useMotionValue } from "framer-motion"
+import { motion } from "framer-motion"
 
 export default function CustomCursor() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
-  const [isPointer, setIsPointer] = useState(false)
-
-  const cursorX = useMotionValue(-100)
-  const cursorY = useMotionValue(-100)
-
-  // Use springs for smooth following movement
-  const springConfig = { damping: 25, stiffness: 300 }
-  const x = useSpring(cursorX, springConfig)
-  const y = useSpring(cursorY, springConfig)
 
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX)
-      cursorY.set(e.clientY)
-
-      // Check if hovering over a clickable element
+    const updateMousePosition = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+      if (!isVisible) setIsVisible(true)
+      
+      // Check if hovering over clickable elements
       const target = e.target as HTMLElement
-      setIsPointer(
-        window.getComputedStyle(target).cursor === "pointer" ||
-          target.tagName === "BUTTON" ||
-          target.tagName === "A" ||
-          target.closest("button") !== null ||
-          target.closest("a") !== null,
-      )
+      const isClickable = 
+        target.tagName.toLowerCase() === 'a' ||
+        target.tagName.toLowerCase() === 'button' ||
+        target.closest('a') !== null ||
+        target.closest('button') !== null ||
+        window.getComputedStyle(target).cursor === 'pointer'
+        
+      setIsHovering(isClickable)
     }
 
-    const handleMouseEnter = () => setIsVisible(true)
     const handleMouseLeave = () => setIsVisible(false)
+    const handleMouseEnter = () => setIsVisible(true)
 
-    window.addEventListener("mousemove", moveCursor)
-    document.body.addEventListener("mouseenter", handleMouseEnter)
-    document.body.addEventListener("mouseleave", handleMouseLeave)
+    window.addEventListener("mousemove", updateMousePosition)
+    window.addEventListener("mouseleave", handleMouseLeave)
+    window.addEventListener("mouseenter", handleMouseEnter)
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor)
-      document.body.removeEventListener("mouseenter", handleMouseEnter)
-      document.body.removeEventListener("mouseleave", handleMouseLeave)
+      window.removeEventListener("mousemove", updateMousePosition)
+      window.removeEventListener("mouseleave", handleMouseLeave)
+      window.removeEventListener("mouseenter", handleMouseEnter)
     }
-  }, [cursorX, cursorY])
+  }, [isVisible])
 
   return (
-    <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[9999] hidden md:block"
-      style={{
-        x,
-        y,
-        translateX: "-50%",
-        translateY: "-50%",
-      }}
-      animate={{
-        opacity: isVisible ? 1 : 0,
-        scale: isPointer ? 1.5 : 1,
-      }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-    >
-      <div className="relative flex items-center justify-center">
-        {/* Main monochrome dot */}
-        <div className="h-3 w-3 rounded-full bg-black dark:bg-white" />
-
-        {/* Outer subtle ring */}
-        <motion.div
-          className="absolute h-8 w-8 rounded-full border border-black/20 dark:border-white/20"
-          animate={{
-            scale: isPointer ? 1.2 : 1,
-            opacity: isPointer ? 0.5 : 1,
-          }}
-        />
-      </div>
-    </motion.div>
+    <>
+      <motion.div
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-primary pointer-events-none z-[9999] hidden md:block mix-blend-difference"
+        animate={{
+          x: mousePosition.x - 16,
+          y: mousePosition.y - 16,
+          scale: isHovering ? 1.5 : 1,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 150,
+          damping: 15,
+          mass: 0.1 // Low mass for quick response
+        }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-[9999] hidden md:block mix-blend-difference"
+        animate={{
+          x: mousePosition.x - 4,
+          y: mousePosition.y - 4,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 500, // Stiffer for the dot to follow closely
+          damping: 28,
+          mass: 0.01 // Very low mass for instant movement
+        }}
+      />
+    </>
   )
 }
