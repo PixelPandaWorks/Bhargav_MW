@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
@@ -31,7 +32,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative z-20 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-light"
           >
-            Bridging the gap between conceptual design and technical execution with a focus on minimalism and precision.
+            I&apos;m Bhargav Waghela. Bridging the gap between Cloud Technology, Information Security, and Digital Marketing with a focus on secure and creative digital solutions.
           </motion.p>
 
           <motion.div
@@ -40,20 +41,24 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative z-20 flex flex-wrap gap-6 justify-center"
           >
-            <Button
-              size="lg"
-              className="h-14 px-10 rounded-none bg-foreground text-background hover:bg-foreground/90 uppercase tracking-widest text-xs font-bold transition-all"
-            >
-              Portfolio
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 px-10 rounded-none border-foreground/20 hover:border-foreground uppercase tracking-widest text-xs font-bold bg-transparent transition-all"
-            >
-              About Me
-            </Button>
+            <Link href="#work">
+              <Button
+                size="lg"
+                className="h-14 px-10 rounded-none bg-foreground text-background hover:bg-foreground/90 uppercase tracking-widest text-xs font-bold transition-all"
+              >
+                Portfolio
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="#about">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 px-10 rounded-none border-foreground/20 hover:border-foreground uppercase tracking-widest text-xs font-bold bg-transparent transition-all"
+              >
+                About Me
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>
