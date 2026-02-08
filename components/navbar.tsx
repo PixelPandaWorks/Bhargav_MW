@@ -22,12 +22,13 @@ export function Navbar() {
     }
   })
 
-  const backgroundColor = useTransform(scrollY, [0, 100], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"])
-
   const navLinks = [
     { name: "Start", href: "/" },
     { name: "Services", href: "/#services" },
     { name: "Work", href: "/#work" },
+    { name: "Events", href: "/events" },
+    { name: "Videos", href: "/videos" },
+    { name: "Graphics", href: "/graphics" },
     { name: "About", href: "/#about" },
     { name: "Contact", href: "/#contact" },
   ]
@@ -40,7 +41,6 @@ export function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      style={{ backgroundColor }}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-transparent data-[scroll=true]:border-border"
     >
       <nav className="container mx-auto px-6 py-4 flex items-center justify-center">

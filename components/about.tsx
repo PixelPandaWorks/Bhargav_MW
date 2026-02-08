@@ -140,7 +140,7 @@ export function About() {
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Web & Languages</h4>
                     <div className="flex flex-wrap gap-2">
-                       {["HTML", "CSS", "React.js", "Node.js", "Javascript", "Python"].map(skill => (
+                       {["HTML", "CSS", "Javascript", "Node.js", "Next.js", "Python", "Typescript"].map(skill => (
                          <span key={skill} className="px-3 py-1 bg-muted/50 border border-border text-xs font-medium rounded-full">{skill}</span>
                        ))}
                     </div>
@@ -148,7 +148,7 @@ export function About() {
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Tools & Platforms</h4>
                     <div className="flex flex-wrap gap-2">
-                       {["GitHub", "AWS", "Docker", "Linux", "Gen AI tools", "MySQL"].map(skill => (
+                       {["GitHub", "AWS", "Docker", "Linux Administration", "Gen AI tools", "MySQL","DaVinci Resolve","Photoshop"].map(skill => (
                          <span key={skill} className="px-3 py-1 bg-muted/50 border border-border text-xs font-medium rounded-full">{skill}</span>
                        ))}
                     </div>

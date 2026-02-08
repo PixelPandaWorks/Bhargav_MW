@@ -7,7 +7,7 @@ const skills = [
   "TYPESCRIPT",
   "REACT",
   "TAILWIND",
-  "PREMIERE",
+  "PREMIERE PRO",
   "AFTER EFFECTS",
   "PHOTOSHOP",
   "ILLUSTRATOR",
@@ -16,8 +16,8 @@ const skills = [
   "OPENAI",
   "SEO",
   "UX/UI",
-  "MOTION",
-]
+  "MOTION GRAPHICS",
+  "VIDEO EDITING"]
 
 export function Skills() {
   return (
@@ -38,7 +38,7 @@ export function Skills() {
           {[...skills, ...skills].map((skill, i) => (
             <span
               key={i}
-              className="text-4xl md:text-5xl lg:text-8xl font-heading font-light text-foreground/5 hover:text-foreground/20 transition-colors cursor-default"
+              className="text-4xl md:text-5xl lg:text-8xl font-heading font-light text-foreground/20 hover:text-foreground/60 transition-colors cursor-default"
             >
               {skill}
             </span>
