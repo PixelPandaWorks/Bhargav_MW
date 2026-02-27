@@ -4,9 +4,6 @@ import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-
-
 
 export function Portfolio({ id }: { id?: string }) {
   const categories = [
@@ -43,12 +40,14 @@ export function Portfolio({ id }: { id?: string }) {
   ]
 
   return (
-    <section id={id} className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="mb-16 md:mb-24 text-center">
+    <section id={id} className="h-screen w-max bg-background relative flex items-center border-r border-border snap-center overflow-hidden">
+      <div className="flex flex-row items-center gap-16 px-10 md:px-24 h-full py-24">
+        
+        {/* Title Area */}
+        <div className="w-[85vw] md:w-[300px] shrink-0 flex flex-col justify-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-heading font-light mb-12"
           >
@@ -56,56 +55,19 @@ export function Portfolio({ id }: { id?: string }) {
           </motion.h2>
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="md:hidden">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {categories.map((category) => (
-                <CarouselItem key={category.title} className="basis-1/2 pl-4">
-                  <Link href={category.href} className="group block relative h-full">
-                    <div className="aspect-[3/4] relative overflow-hidden bg-muted grayscale filter transition-all duration-700 ease-in-out border border-border">
-                      <Image
-                        src={category.image || "/placeholder.svg"}
-                        alt={category.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="mt-4 text-center">
-                      <h3 className="text-xl font-heading font-light mb-1">{category.title}</h3>
-                      <p className="text-[10px] text-muted-foreground font-light tracking-wide uppercase">
-                        {category.description}
-                      </p>
-                    </div>
-                  </Link>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center gap-2 mt-8">
-              <CarouselPrevious className="static translate-y-0 translate-x-0" />
-              <CarouselNext className="static translate-y-0 translate-x-0" />
-            </div>
-          </Carousel>
-        </div>
-
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-12">
+        {/* Portfolio Horizontal Feed */}
+        <div className="flex flex-row gap-12 h-full max-h-[600px] shrink-0">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              className="w-[85vw] md:w-[400px] shrink-0 h-full"
             >
-              <Link href={category.href} className="group block relative">
-                <div className="aspect-[3/4] relative overflow-hidden bg-muted grayscale hover:grayscale-0 transition-all duration-700 ease-in-out border border-border">
+              <Link href={category.href} className="group flex flex-col h-full relative">
+                <div className="flex-1 w-full relative overflow-hidden bg-muted grayscale hover:grayscale-0 transition-all duration-700 ease-in-out border border-border">
                   <Image
                     src={category.image || "/placeholder.svg"}
                     alt={category.title}
@@ -114,13 +76,13 @@ export function Portfolio({ id }: { id?: string }) {
                   />
                   <div className="absolute inset-0 bg-background/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute top-6 right-6">
-                    <div className="size-10 rounded-full bg-background border border-border flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                     <div className="size-10 rounded-full bg-background border border-border flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                       <ArrowUpRight className="size-4" />
                     </div>
                   </div>
                 </div>
-                <div className="mt-8 text-center md:text-left">
-                  <div className="flex items-center gap-4 mb-4 justify-center md:justify-start">
+                <div className="mt-8 text-left shrink-0">
+                  <div className="flex items-center gap-4 mb-4 justify-start">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                       Explore
                     </span>
@@ -135,6 +97,7 @@ export function Portfolio({ id }: { id?: string }) {
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )

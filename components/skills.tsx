@@ -21,7 +21,7 @@ const skills = [
 
 export function Skills() {
   return (
-    <section className="py-16 md:py-24 border-y border-border overflow-hidden bg-background">
+    <section className="h-screen w-screen flex flex-col justify-center border-r border-border overflow-hidden bg-background">
       <div className="container mx-auto px-6 mb-16">
         <h2 className="text-center text-[10px] font-bold uppercase tracking-[0.4em] text-muted-foreground">
           Technological Proficiency
