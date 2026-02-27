@@ -38,9 +38,9 @@ const services = [
   },
 ]
 
-export function Services() {
+export function Services({ id }: { id?: string }) {
   return (
-    <section id="services" className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section id={id} className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center text-center mb-16 md:mb-24 gap-6">
           <div className="max-w-2xl">

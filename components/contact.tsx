@@ -3,9 +3,9 @@
 import { motion } from "framer-motion"
 import { Mail, Github, Twitter, Linkedin, ArrowUpRight, Instagram } from "lucide-react"
 
-export function Contact() {
+export function Contact({ id }: { id?: string }) {
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background border-t border-border">
+    <section id={id} className="py-20 md:py-32 bg-background border-t border-border">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-16 md:mb-24">
           

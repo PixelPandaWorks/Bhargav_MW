@@ -22,9 +22,9 @@ const reasons = [
   },
 ]
 
-export function About() {
+export function About({ id }: { id?: string }) {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background border-t border-border">
+    <section id={id} className="py-20 md:py-32 bg-background border-t border-border">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
           <motion.div

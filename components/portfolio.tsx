@@ -8,7 +8,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 
 
-export function Portfolio() {
+export function Portfolio({ id }: { id?: string }) {
   const categories = [
     {
       title: "Video",
@@ -43,7 +43,7 @@ export function Portfolio() {
   ]
 
   return (
-    <section id="work" className="py-20 md:py-32 bg-background">
+    <section id={id} className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <div className="mb-16 md:mb-24 text-center">
           <motion.h2

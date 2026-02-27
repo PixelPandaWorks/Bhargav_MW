@@ -6,6 +6,7 @@ import { Skills } from "@/components/skills"
 import { Portfolio } from "@/components/portfolio"
 import { About } from "@/components/about"
 import { Contact } from "@/components/contact"
+import { HorizontalScroll } from "@/components/horizontal-scroll"
 
 export default function Home() {
   return (
@@ -13,11 +14,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Signature />
-      <Skills />
-      <Services />
-      <Portfolio />
-      <About />
-      <Contact />
+      <HorizontalScroll ids={['', 'services', 'work', 'about', 'contact']}>
+        <Skills />
+        <Services />
+        <Portfolio />
+        <About />
+        <Contact />
+      </HorizontalScroll>
     </main>
   )
 }
