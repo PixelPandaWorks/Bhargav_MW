@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import CustomCursor from "@/components/custom-cursor"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 // Using light weight (300) Cormorant Garamond for elegant, thin serif headings
 const cormorantGaramond = Cormorant_Garamond({
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <CustomCursor />
+          <ThemeToggle />
           {children}
           <Analytics />
         </ThemeProvider>
