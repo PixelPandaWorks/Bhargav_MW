@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Award, Zap, Users, GraduationCap, Briefcase, Code, ScrollText, Globe } from "lucide-react"
 import Image from "next/image"
+import { ScrollHoverWrapper } from "@/components/scroll-hover-wrapper"
 
 const reasons = [
   {
@@ -46,32 +47,47 @@ export function About({ id }: { id?: string }) {
         </div>
 
         {/* Image */}
-        <div className="w-[85vw] md:w-[600px] shrink-0 h-full max-h-[600px] relative overflow-hidden grayscale group border border-border">
-          <Image
-            src="/my_image.jpg"
-            alt="Bhargav Waghela"
-            fill
-            className="object-cover transition-transform duration-1000 group-hover:scale-105"
-          />
-        </div>
+        <ScrollHoverWrapper
+          className="w-[85vw] md:w-[600px] shrink-0 h-full max-h-[600px] relative overflow-hidden border border-border transition-all duration-300"
+          activeClass="grayscale-0"
+          inactiveClass="grayscale"
+        >
+          {(isHovered: boolean) => (
+            <Image
+              src="/my_image.jpg"
+              alt="Bhargav Waghela"
+              fill
+              className={`object-cover transition-transform duration-500 ${isHovered ? 'scale-105' : ''}`}
+            />
+          )}
+        </ScrollHoverWrapper>
 
         {/* Philosophy Grid */}
         <div className="flex flex-row gap-px bg-border border border-border h-full max-h-[600px] shrink-0">
           {reasons.map((reason, index) => (
-            <motion.div
+            <ScrollHoverWrapper
               key={reason.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="w-[80vw] md:w-[350px] p-8 md:p-12 bg-background flex flex-col justify-center items-center text-center group hover:bg-muted/30 transition-colors shrink-0 h-full"
+              as={motion.div}
+              {...({ 
+                 initial: { opacity: 0, scale: 0.95 },
+                 whileInView: { opacity: 1, scale: 1 },
+                 viewport: { once: true },
+                 transition: { delay: index * 0.1 }
+              } as any)}
+              className="w-[80vw] md:w-[350px] p-8 md:p-12 flex flex-col justify-center items-center text-center transition-colors shrink-0 h-full"
+              activeClass="bg-muted/30"
+              inactiveClass="bg-background"
             >
-              <div className="size-10 border border-border flex items-center justify-center mb-8">
-                <reason.icon className="size-4 text-foreground/50" />
-              </div>
-              <h3 className="text-xl font-heading font-light mb-4">{reason.title}</h3>
-              <p className="text-muted-foreground font-light text-sm leading-relaxed">{reason.description}</p>
-            </motion.div>
+              {(isHovered: boolean) => (
+                <>
+                  <div className="size-10 border border-border flex items-center justify-center mb-8">
+                    <reason.icon className={`size-4 transition-colors ${isHovered ? 'text-foreground' : 'text-foreground/50'}`} />
+                  </div>
+                  <h3 className="text-xl font-heading font-light mb-4">{reason.title}</h3>
+                  <p className="text-muted-foreground font-light text-sm leading-relaxed">{reason.description}</p>
+                </>
+              )}
+            </ScrollHoverWrapper>
           ))}
         </div>
 
@@ -86,7 +102,11 @@ export function About({ id }: { id?: string }) {
               <Briefcase className="size-5 text-muted-foreground" />
               <h3 className="text-2xl font-heading font-light">Experience</h3>
             </div>
-            <div className="pl-2 border-l border-border hover:border-foreground/50 transition-colors duration-300">
+            <ScrollHoverWrapper 
+              className="pl-2 border-l transition-colors duration-200"
+              activeClass="border-foreground/50"
+              inactiveClass="border-border"
+            >
               <div className="pl-6 relative">
                 <div className="absolute -left-[5px] top-2 size-2.5 bg-background border border-foreground rounded-full" />
                 <h4 className="text-lg font-medium">Digital Marketing Manager</h4>
@@ -97,7 +117,7 @@ export function About({ id }: { id?: string }) {
                   <li>Handled performance marketing tasks, leveraging Gen AI tools and industry trends.</li>
                 </ul>
               </div>
-            </div>
+            </ScrollHoverWrapper>
           </motion.div>
 
           <motion.div
@@ -110,7 +130,11 @@ export function About({ id }: { id?: string }) {
               <GraduationCap className="size-5 text-muted-foreground" />
               <h3 className="text-2xl font-heading font-light">Education</h3>
             </div>
-            <div className="pl-2 border-l border-border hover:border-foreground/50 transition-colors duration-300">
+            <ScrollHoverWrapper 
+              className="pl-2 border-l transition-colors duration-200"
+              activeClass="border-foreground/50"
+              inactiveClass="border-border"
+            >
               <div className="pl-6 relative">
                 <div className="absolute -left-[5px] top-2 size-2.5 bg-background border border-foreground rounded-full" />
                 <h4 className="text-lg font-medium">Ajeenkya DY Patil University</h4>
@@ -118,7 +142,7 @@ export function About({ id }: { id?: string }) {
                 <span className="text-xs text-muted-foreground block mt-2 tracking-widest uppercase">Pune, India | May 2025</span>
                 <p className="text-sm text-muted-foreground mt-2 font-medium">CGPA: 7.77</p>
               </div>
-            </div>
+            </ScrollHoverWrapper>
           </motion.div>
         </div>
 
@@ -138,7 +162,9 @@ export function About({ id }: { id?: string }) {
                 <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">Web & Languages</h4>
                 <div className="flex flex-wrap gap-2">
                    {["HTML", "CSS", "Javascript", "Node.js", "Next.js", "Python", "Typescript"].map(skill => (
-                     <span key={skill} className="px-3 py-1 bg-muted/50 border border-border text-xs font-medium rounded-full">{skill}</span>
+                     <ScrollHoverWrapper key={skill} className="px-3 py-1 border border-border text-xs font-medium rounded-full transition-colors" activeClass="bg-muted/100 border-foreground/30" inactiveClass="bg-muted/50">
+                       {skill}
+                     </ScrollHoverWrapper>
                    ))}
                 </div>
               </div>
@@ -146,7 +172,9 @@ export function About({ id }: { id?: string }) {
                 <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">Tools & Platforms</h4>
                 <div className="flex flex-wrap gap-2">
                    {["GitHub", "AWS", "Docker", "Linux Admin", "Gen AI", "MySQL","DaVinci Resolve","Photoshop"].map(skill => (
-                     <span key={skill} className="px-3 py-1 bg-muted/50 border border-border text-xs font-medium rounded-full">{skill}</span>
+                     <ScrollHoverWrapper key={skill} className="px-3 py-1 border border-border text-xs font-medium rounded-full transition-colors" activeClass="bg-muted/100 border-foreground/30" inactiveClass="bg-muted/50">
+                       {skill}
+                     </ScrollHoverWrapper>
                    ))}
                 </div>
               </div>
@@ -170,10 +198,15 @@ export function About({ id }: { id?: string }) {
                 "AWS Fundamentals",
                 "Cyber Security IT Fundamentals"
               ].map((cert) => (
-                <li key={cert} className="flex items-start gap-3 text-sm text-muted-foreground font-light">
-                  <span className="mt-1.5 size-1.5 rounded-full bg-foreground/20 shrink-0" />
-                  {cert}
-                </li>
+                <ScrollHoverWrapper as="li" key={cert} className="flex items-start gap-3 text-sm text-muted-foreground font-light transition-colors" activeClass="text-foreground">
+                   {/* render-prop just to grab hover states! */}
+                   {(isHovered: boolean) => (
+                      <>
+                         <span className={`mt-1.5 size-1.5 rounded-full shrink-0 transition-colors ${isHovered ? 'bg-foreground' : 'bg-foreground/20'}`} />
+                         {cert}
+                      </>
+                   )}
+                </ScrollHoverWrapper>
               ))}
             </ul>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground font-light">

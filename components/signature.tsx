@@ -4,19 +4,29 @@ import { motion } from "framer-motion"
 import { Quote, Star, Zap, Heart, Shield, Terminal, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+import { useScrollHover } from "@/hooks/use-scroll-hover"
+
 function Card({ className, children, delay = 0 }: { className?: string; children: React.ReactNode; delay?: number }) {
+  const { ref, isHovered, hoverProps } = useScrollHover<HTMLDivElement>({ threshold: 0.5, staggerDelay: 0 })
+
   return (
     <motion.div
+      ref={ref}
+      {...hoverProps}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       className={cn(
-        "relative p-6 md:p-8 bg-muted/30 border border-border/50 backdrop-blur-sm hover:bg-muted/50 transition-colors duration-300 overflow-hidden group",
+        "relative p-6 md:p-8 border border-border/50 backdrop-blur-sm transition-colors duration-200 overflow-hidden",
+        isHovered ? "bg-muted/50" : "bg-muted/30",
         className
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className={cn(
+        "absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-foreground/5 transition-opacity duration-300",
+        isHovered ? "opacity-100" : "opacity-0"
+      )} />
       {children}
     </motion.div>
   )

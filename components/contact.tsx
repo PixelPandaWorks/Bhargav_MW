@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Mail, Github, Twitter, Linkedin, ArrowUpRight, Instagram } from "lucide-react"
+import { ScrollHoverWrapper } from "@/components/scroll-hover-wrapper"
 
 export function Contact({ id }: { id?: string }) {
   return (
@@ -19,16 +20,20 @@ export function Contact({ id }: { id?: string }) {
           <h2 className="text-4xl md:text-5xl font-heading font-light mb-8 text-left">
             Resume
           </h2>
-          <div className="group relative aspect-[4/3] w-full bg-muted/30 rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-colors p-6 md:p-8 flex items-center justify-center">
-             <div className="text-center space-y-4">
-                <div className="text-3xl font-heading font-light">Creative Expert</div>
-                <div className="text-muted-foreground text-sm uppercase tracking-widest">Portfolio 2026</div>
-                <div className="text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 mt-4 font-medium">
-                   View Resume <ArrowUpRight className="size-4" />
-                </div>
-             </div>
-             <a href="#" className="absolute inset-0 z-10" aria-label="View Resume"></a>
-          </div>
+          <ScrollHoverWrapper>
+            {(isHovered) => (
+              <div className={`relative aspect-[4/3] w-full bg-muted/30 rounded-xl border transition-colors p-6 md:p-8 flex items-center justify-center overflow-hidden ${isHovered ? 'border-white/20' : 'border-white/10'}`}>
+                 <div className="text-center space-y-4">
+                    <div className="text-3xl font-heading font-light">Creative Expert</div>
+                    <div className="text-muted-foreground text-sm uppercase tracking-widest">Portfolio 2026</div>
+                    <div className={`text-blue-400 transition-opacity flex items-center justify-center gap-2 mt-4 font-medium ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                       View Resume <ArrowUpRight className="size-4" />
+                    </div>
+                 </div>
+                 <a href="#" className="absolute inset-0 z-10" aria-label="View Resume"></a>
+              </div>
+            )}
+          </ScrollHoverWrapper>
         </motion.div>
 
         {/* Connect Column */}
@@ -52,79 +57,99 @@ export function Contact({ id }: { id?: string }) {
           <div className="grid grid-cols-2 gap-4">
             
             {/* Email */}
-            <a href="mailto:contact@minimalist.expert" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <Mail className="size-6 text-foreground" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm mb-1">Email</div>
-                  <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                    Open <ArrowUpRight className="size-3" />
+            <ScrollHoverWrapper>
+              {(isHovered) => (
+                <a href="mailto:contact@minimalist.expert" className={`p-6 rounded-xl border border-white/10 transition-all flex items-start justify-between ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-lg transition-colors ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                      <Mail className="size-6 text-foreground" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">Email</div>
+                      <div className={`text-xs transition-colors flex items-center gap-1 ${isHovered ? 'text-foreground' : 'text-muted-foreground'}`}>
+                        Open <ArrowUpRight className="size-3" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
+                </a>
+              )}
+            </ScrollHoverWrapper>
 
             {/* Twitter / X */}
-            <a href="https://x.com/bhargavmwaghela" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
-              <div className="flex items-center gap-4">
-                 <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <Twitter className="size-6 text-foreground" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm mb-1">Twitter / X</div>
-                  <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                    Open <ArrowUpRight className="size-3" />
+            <ScrollHoverWrapper>
+              {(isHovered) => (
+                <a href="https://x.com/bhargavmwaghela" className={`p-6 rounded-xl border border-white/10 transition-all flex items-start justify-between ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                  <div className="flex items-center gap-4">
+                     <div className={`p-3 rounded-lg transition-colors ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                      <Twitter className="size-6 text-foreground" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">Twitter / X</div>
+                      <div className={`text-xs transition-colors flex items-center gap-1 ${isHovered ? 'text-foreground' : 'text-muted-foreground'}`}>
+                        Open <ArrowUpRight className="size-3" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
+                </a>
+              )}
+            </ScrollHoverWrapper>
 
             {/* LinkedIn */}
-            <a href="https://www.linkedin.com/in/bhargav-waghela-a00821394" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
-               <div className="flex items-center gap-4">
-                 <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <Linkedin className="size-6 text-foreground" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm mb-1">LinkedIn</div>
-                  <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                    Open <ArrowUpRight className="size-3" />
+            <ScrollHoverWrapper>
+              {(isHovered) => (
+                <a href="https://www.linkedin.com/in/bhargav-waghela-a00821394" className={`p-6 rounded-xl border border-white/10 transition-all flex items-start justify-between ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                   <div className="flex items-center gap-4">
+                     <div className={`p-3 rounded-lg transition-colors ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                      <Linkedin className="size-6 text-foreground" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">LinkedIn</div>
+                      <div className={`text-xs transition-colors flex items-center gap-1 ${isHovered ? 'text-foreground' : 'text-muted-foreground'}`}>
+                        Open <ArrowUpRight className="size-3" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
+                </a>
+              )}
+            </ScrollHoverWrapper>
 
             {/* GitHub */}
-            <a href="https://github.com/PixelPandaWorks" className="group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
-               <div className="flex items-center gap-4">
-                 <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <Github className="size-6 text-foreground" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm mb-1">GitHub</div>
-                  <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                    Open <ArrowUpRight className="size-3" />
+            <ScrollHoverWrapper>
+              {(isHovered) => (
+                <a href="https://github.com/PixelPandaWorks" className={`p-6 rounded-xl border border-white/10 transition-all flex items-start justify-between ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                   <div className="flex items-center gap-4">
+                     <div className={`p-3 rounded-lg transition-colors ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                      <Github className="size-6 text-foreground" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">GitHub</div>
+                      <div className={`text-xs transition-colors flex items-center gap-1 ${isHovered ? 'text-foreground' : 'text-muted-foreground'}`}>
+                        Open <ArrowUpRight className="size-3" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
+                </a>
+              )}
+            </ScrollHoverWrapper>
 
              {/* Instagram */}
-            <a href="https://instagram.com/bhaargaav_" className="col-span-2 group p-6 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all flex items-start justify-between">
-               <div className="flex items-center gap-4">
-                 <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <Instagram className="size-6 text-foreground" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm mb-1">Instagram</div>
-                  <div className="text-xs text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-1">
-                    Open <ArrowUpRight className="size-3" />
+            <ScrollHoverWrapper>
+              {(isHovered) => (
+                <a href="https://instagram.com/bhaargaav_" className={`col-span-2 p-6 rounded-xl border border-white/10 transition-all flex items-start justify-between ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                   <div className="flex items-center gap-4">
+                     <div className={`p-3 rounded-lg transition-colors ${isHovered ? 'bg-white/10' : 'bg-white/5'}`}>
+                      <Instagram className="size-6 text-foreground" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm mb-1">Instagram</div>
+                      <div className={`text-xs transition-colors flex items-center gap-1 ${isHovered ? 'text-foreground' : 'text-muted-foreground'}`}>
+                        Open <ArrowUpRight className="size-3" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </a>
+                </a>
+              )}
+            </ScrollHoverWrapper>
 
           </div>
         </motion.div>

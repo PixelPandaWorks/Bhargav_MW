@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/navbar"
+ 
 import { Hero } from "@/components/hero"
 import { Signature } from "@/components/signature"
 import { Services } from "@/components/services"
@@ -11,7 +11,7 @@ import { HorizontalScroll } from "@/components/horizontal-scroll"
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      <Navbar />
+ 
       <Hero />
       <Signature />
       <HorizontalScroll ids={['', 'services', 'work', 'about', 'contact']}>

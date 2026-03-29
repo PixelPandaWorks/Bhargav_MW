@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { ScrollHoverWrapper } from "@/components/scroll-hover-wrapper"
 
 export function Hero() {
   return (
@@ -42,22 +43,30 @@ export function Hero() {
             className="relative z-20 flex flex-wrap gap-6 justify-center"
           >
             <Link href="#work">
-              <Button
-                size="lg"
-                className="h-14 px-10 rounded-none bg-foreground text-background hover:bg-foreground/90 uppercase tracking-widest text-xs font-bold transition-all"
-              >
-                Portfolio
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <ScrollHoverWrapper>
+                {(isHovered) => (
+                  <Button
+                    size="lg"
+                    className={`h-14 px-10 rounded-none bg-foreground text-background uppercase tracking-widest text-xs font-bold transition-all ${isHovered ? 'bg-foreground/90' : ''}`}
+                  >
+                    Portfolio
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                )}
+              </ScrollHoverWrapper>
             </Link>
             <Link href="#about">
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-14 px-10 rounded-none border-foreground/20 hover:border-foreground uppercase tracking-widest text-xs font-bold bg-transparent transition-all"
-              >
-                About Me
-              </Button>
+              <ScrollHoverWrapper>
+                {(isHovered) => (
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className={`h-14 px-10 rounded-none border-foreground/20 uppercase tracking-widest text-xs font-bold bg-transparent transition-all ${isHovered ? 'border-foreground' : ''}`}
+                  >
+                    About Me
+                  </Button>
+                )}
+              </ScrollHoverWrapper>
             </Link>
           </motion.div>
         </div>
@@ -83,15 +92,6 @@ export function Hero() {
           />
         </motion.div>
       </div>
-
-      {/* <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-      >
-        <div className="w-[1px] h-16 bg-foreground/20" />
-        <span className="text-[9px] uppercase tracking-[0.4em] font-medium text-muted-foreground">Scroll Down</span>
-      </motion.div> */}
     </section>
   )
 }

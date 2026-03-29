@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Navbar } from "@/components/navbar"
+ 
 import { Contact } from "@/components/contact"
 import Image from "next/image"
 import { X, ZoomIn } from "lucide-react"
@@ -52,7 +52,7 @@ export default function GraphicsPage() {
 
   return (
     <main className="relative min-h-screen bg-background">
-      <Navbar />
+ 
 
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-16 md:mt-0">

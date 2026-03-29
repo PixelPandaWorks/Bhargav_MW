@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion } from "framer-motion"
-import { Navbar } from "@/components/navbar"
+ 
 import { Contact } from "@/components/contact"
 import Image from "next/image"
 import { CheckCircle2, MapPin, Calendar, Camera, ChevronLeft, ChevronRight, X, Play } from "lucide-react"
@@ -91,7 +91,7 @@ export default function EventsPage() {
 
   return (
     <main className="relative min-h-screen bg-background">
-      <Navbar />
+ 
       
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-16 md:mt-0">
