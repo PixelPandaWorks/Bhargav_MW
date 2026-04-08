@@ -7,6 +7,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import CustomCursor from "@/components/custom-cursor"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Navigation } from "@/components/navigation"
 
 // Using light weight (300) Cormorant Garamond for elegant, thin serif headings
 const cormorantGaramond = Cormorant_Garamond({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <CustomCursor />
           <ThemeToggle />
+          <Navigation />
           {children}
           <Analytics />
         </ThemeProvider>

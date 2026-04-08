@@ -1,0 +1,51 @@
+Bhargav M Waghela 
+Thane(W) | LinkedIn | bmwaghela2611@gmail.com | Github | +91 7710030075 | bhargav-mw.vercel.app 
+PROJECTS 
+Personal Cloud | Nextcloud, Docker 
+● Developing a private cloud solution using Nextcloud, with authentication and encryption to ensure 
+data security. Configured intuitive file-sharing interfaces, showcasing expertise in cloud 
+deployment, Docker, Linux systems, and data protection. 
+Workflow Management System | AWS IAM & S3 
+● Created a secure workflow platform with MongoDB, Node.js, and Express.js for employees and 
+managers. Integrated password encryption with bcrypt, applied steganography to conceal sensitive 
+data within images, and leveraged AWS S3 with IAM for secure storage and access control. 
+Solar System Explorer | Next.js, React Three Fiber, Three.js, Tailwind CSS 
+• Developed an immersive, interactive 3D solar system web application featuring high-fidelity 
+planetary exploration, a realistic flight simulator, and real-time AI-powered chatbots for celestial 
+education using Gemini. 
+Solar System Explorer | Next.js, React Three Fiber, Three.js, Tailwind CSS 
+• Developed an asynchronous full-stack AI application combining a secure, high-concurrency 
+FastAPI backend with a responsive vanilla JavaScript architecture for complex data handling. 
+• Built an autonomous background agent system utilizing LLMs (Claude, OpenAI, Gemini) and 
+PostgreSQL for storage to structure conversational context into persistent, queryable database 
+memory. 
+SKILLS 
+Web: HTML, CSS, React.js, Node.js      Languages: C, Python, JS 
+Tools and platforms: AWS, Docker, Linux, Unix Scripting,           Databases: MySQL, MongoDB 
+SDLC, CI CD Pipelines, Gen AI tools, Video Editing Tools 
+SOFT SKILLS 
+Problem Solving, Teamwork & Collaboration, Critical Thinking, Logic Building, Good Communication 
+WORK EXPERIENCE  
+Digital Marketing Executive | Digikraf                   Dec 2025 – Present 
+• Automated internal workflows using AI tools and optimized server-side logic for CRM systems 
+• Designed high-performance UX interfaces for digital platforms with AI-driven design principles. 
+• Managed creative production by leveraging AI tools for video editing, graphic design, and 
+branding collaterals, optimizing speed and quality of output. 
+• Spearheaded server administration and automated technical system management. 
+• Partnered with clients to deliver efficient, tech-driven project execution and scalable solutions. 
+ 
+Founder’s Office | The Divine Digital           Aug 2024 – Oct 2025 
+• Engineered responsive WordPress architectures focusing on user experience and technical reliability. 
+• Developed high-impact digital content and video assets, achieving 100k+ views for multi-platform 
+clients. 
+• Executed performance marketing by leveraging Gen AI tools and data analytics to optimize digital 
+growth. 
+ 
+EDUCATION  
+Ajeenkya DY Patil University (ADYPU) May 2025 
+Bachelor of Technology in Cloud Technology and Information Security Pune, India  
+LANGUAGES 
+English, Hindi, Japanese, Gujarati, Marathi 
+INTERESTS / HOBBIES 
+Exploring latest technologies | Video editing | Badminton | Swimming | Trekking | Event organizing  
+ 

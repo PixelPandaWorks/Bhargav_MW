@@ -30,7 +30,7 @@ export function Contact({ id }: { id?: string }) {
                        View Resume <ArrowUpRight className="size-4" />
                     </div>
                  </div>
-                 <a href="#" className="absolute inset-0 z-10" aria-label="View Resume"></a>
+                 <a href="/BhargavMW_Resume__.pdf" target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-10" aria-label="View Resume"></a>
               </div>
             )}
           </ScrollHoverWrapper>
@@ -158,7 +158,7 @@ export function Contact({ id }: { id?: string }) {
         <footer className="w-[85vw] md:w-[300px] shrink-0 h-full flex flex-col justify-end pb-12 border-l border-border pl-12 ml-4">
           <div className="flex flex-col gap-8">
             <p className="text-[10px] font-bold text-muted-foreground tracking-[0.3em] uppercase leading-relaxed">
-              &copy; 2025 MINIMALIST.EXPERT <br/><br/> REFINED CRAFT
+            &copy; 2025 Creative Technologist <br/><br/> REFINED CRAFT WITH THE USE OF AI & TECH 
             </p>
             <div className="flex flex-col gap-6 mt-8">
               <a

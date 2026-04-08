@@ -102,48 +102,38 @@ export function About({ id }: { id?: string }) {
               <Briefcase className="size-5 text-muted-foreground" />
               <h3 className="text-2xl font-heading font-light">Experience</h3>
             </div>
-            <ScrollHoverWrapper 
+            <ScrollHoverWrapper
               className="pl-2 border-l transition-colors duration-200"
               activeClass="border-foreground/50"
               inactiveClass="border-border"
             >
+              <div className="pl-6 relative mb-8">
+                <div className="absolute -left-[5px] top-2 size-2.5 bg-background border border-foreground rounded-full" />
+                <h4 className="text-lg font-medium">Digital Marketing Executive</h4>
+                <span className="text-sm text-muted-foreground block mb-4">Digikraf | Dec 2025 – Present</span>
+                <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-4 font-light leading-relaxed">
+                  <li>Automated internal workflows using AI tools and optimized server-side logic for CRM systems.</li>
+                  <li>Designed high-performance UX interfaces for digital platforms with AI-driven design principles.</li>
+                  <li>Managed creative production by leveraging AI tools for video editing, graphic design, and branding collaterals, optimizing speed and quality of output.</li>
+                  <li>Spearheaded server administration and automated technical system management.</li>
+                  <li>Partnered with clients to deliver efficient, tech-driven project execution and scalable solutions.</li>
+                </ul>
+              </div>
+
               <div className="pl-6 relative">
                 <div className="absolute -left-[5px] top-2 size-2.5 bg-background border border-foreground rounded-full" />
-                <h4 className="text-lg font-medium">Digital Marketing Manager</h4>
+                <h4 className="text-lg font-medium">Founder’s Office</h4>
                 <span className="text-sm text-muted-foreground block mb-4">The Divine Digital | Aug 2024 – Oct 2025</span>
                 <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-4 font-light leading-relaxed">
-                  <li>Managed WordPress websites for responsive design and user experience.</li>
-                  <li>Edited videos and designed posts for social media, generating 100k+ views across multiple platforms.</li>
-                  <li>Handled performance marketing tasks, leveraging Gen AI tools and industry trends.</li>
+                  <li>Engineered responsive WordPress architectures focusing on user experience and technical reliability.</li>
+                  <li>Developed high-impact digital content and video assets, achieving 100k+ views for multi-platform clients.</li>
+                  <li>Executed performance marketing by leveraging Gen AI tools and data analytics to optimize digital growth.</li>
                 </ul>
               </div>
             </ScrollHoverWrapper>
           </motion.div>
 
-          <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <GraduationCap className="size-5 text-muted-foreground" />
-              <h3 className="text-2xl font-heading font-light">Education</h3>
-            </div>
-            <ScrollHoverWrapper 
-              className="pl-2 border-l transition-colors duration-200"
-              activeClass="border-foreground/50"
-              inactiveClass="border-border"
-            >
-              <div className="pl-6 relative">
-                <div className="absolute -left-[5px] top-2 size-2.5 bg-background border border-foreground rounded-full" />
-                <h4 className="text-lg font-medium">Ajeenkya DY Patil University</h4>
-                <p className="text-sm text-foreground/80 mt-1">B.Tech in Cloud Technology & Information Security</p>
-                <span className="text-xs text-muted-foreground block mt-2 tracking-widest uppercase">Pune, India | May 2025</span>
-                <p className="text-sm text-muted-foreground mt-2 font-medium">CGPA: 7.77</p>
-              </div>
-            </ScrollHoverWrapper>
-          </motion.div>
+
         </div>
 
         {/* Skills & Certifications */}
@@ -216,6 +206,31 @@ export function About({ id }: { id?: string }) {
                <span>Gujarati</span>
                <span>Marathi</span>
             </div>
+          </motion.div>
+
+          <motion.div
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ delay: 0.2 }}
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <GraduationCap className="size-5 text-muted-foreground" />
+              <h3 className="text-2xl font-heading font-light">Education</h3>
+            </div>
+            <ScrollHoverWrapper 
+              className="pl-2 border-l transition-colors duration-200"
+              activeClass="border-foreground/50"
+              inactiveClass="border-border"
+            >
+              <div className="pl-6 relative">
+                <div className="absolute -left-[5px] top-2 size-2.5 bg-background border border-foreground rounded-full" />
+                {/* <h4 className="text-lg font-medium">Ajeenkya DY Patil University</h4> */}
+                <p className="text-sm text-foreground/80 mt-1">B.Tech in Cloud Technology & Information Security</p>
+                <span className="text-xs text-muted-foreground block mt-2 tracking-widest uppercase">Pune, India | May 2025</span>
+                <p className="text-sm text-muted-foreground mt-2 font-medium">CGPA: 7.77</p>
+              </div>
+            </ScrollHoverWrapper>
           </motion.div>
         </div>
 
