@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { Award, Zap, Users, GraduationCap, Briefcase, Code, ScrollText, Globe } from "lucide-react"
 import Image from "next/image"
 import { ScrollHoverWrapper } from "@/components/scroll-hover-wrapper"
+import { Card, CardContent } from "@/components/ui/card"
+import { useScrollHover } from "@/hooks/use-scroll-hover"
 
 const reasons = [
   {
@@ -22,6 +24,38 @@ const reasons = [
     icon: Users,
   },
 ]
+
+function PhilosophyCard({ reason, index }: { reason: typeof reasons[0], index: number }) {
+  const { ref, isHovered, hoverProps } = useScrollHover<HTMLDivElement>({ threshold: 0.5, staggerDelay: 0 })
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="w-[80vw] md:w-[350px] shrink-0 h-full"
+      ref={ref}
+      {...hoverProps}
+    >
+      <Card
+        className={`h-full border-0 rounded-none transition-colors duration-200 ${isHovered ? 'bg-muted/30' : 'bg-background'}`}
+      >
+        <CardContent className="p-8 md:p-12 flex flex-col h-full justify-between">
+          <div>
+            <div className="size-10 flex items-center justify-center mb-10 border border-border">
+              <reason.icon className={`size-4 transition-colors duration-200 ${isHovered ? 'text-foreground' : 'text-foreground/70'}`} />
+            </div>
+            <h3 className={`text-2xl font-heading font-light mb-6 transition-transform duration-200 ${isHovered ? 'translate-x-1' : ''}`}>
+              {reason.title}
+            </h3>
+          </div>
+          <p className="text-muted-foreground leading-relaxed font-light text-sm">{reason.description}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
+  )
+}
 
 export function About({ id }: { id?: string }) {
   return (
@@ -47,7 +81,7 @@ export function About({ id }: { id?: string }) {
         </div>
 
         {/* Image */}
-        <ScrollHoverWrapper
+        {/* <ScrollHoverWrapper
           className="w-[85vw] md:w-[600px] shrink-0 h-full max-h-[600px] relative overflow-hidden border border-border transition-all duration-300"
           activeClass="grayscale-0"
           inactiveClass="grayscale"
@@ -60,34 +94,12 @@ export function About({ id }: { id?: string }) {
               className={`object-cover transition-transform duration-500 ${isHovered ? 'scale-105' : ''}`}
             />
           )}
-        </ScrollHoverWrapper>
+        </ScrollHoverWrapper> */}
 
         {/* Philosophy Grid */}
         <div className="flex flex-row gap-px bg-border border border-border h-full max-h-[600px] shrink-0">
           {reasons.map((reason, index) => (
-            <ScrollHoverWrapper
-              key={reason.title}
-              as={motion.div}
-              {...({ 
-                 initial: { opacity: 0, scale: 0.95 },
-                 whileInView: { opacity: 1, scale: 1 },
-                 viewport: { once: true },
-                 transition: { delay: index * 0.1 }
-              } as any)}
-              className="w-[80vw] md:w-[350px] p-8 md:p-12 flex flex-col justify-center items-center text-center transition-colors shrink-0 h-full"
-              activeClass="bg-muted/30"
-              inactiveClass="bg-background"
-            >
-              {(isHovered: boolean) => (
-                <>
-                  <div className="size-10 border border-border flex items-center justify-center mb-8">
-                    <reason.icon className={`size-4 transition-colors ${isHovered ? 'text-foreground' : 'text-foreground/50'}`} />
-                  </div>
-                  <h3 className="text-xl font-heading font-light mb-4">{reason.title}</h3>
-                  <p className="text-muted-foreground font-light text-sm leading-relaxed">{reason.description}</p>
-                </>
-              )}
-            </ScrollHoverWrapper>
+            <PhilosophyCard key={reason.title} reason={reason} index={index} />
           ))}
         </div>
 

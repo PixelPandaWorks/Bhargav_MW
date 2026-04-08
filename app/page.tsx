@@ -13,11 +13,11 @@ export default function Home() {
     <main className="relative min-h-screen">
  
       <Hero />
-      <Signature />
       <HorizontalScroll ids={['', 'services', 'work', 'about', 'contact']}>
+        <Signature />
         <Skills />
-        <Services />
         <Portfolio />
+        <Services />
         <About />
         <Contact />
       </HorizontalScroll>
