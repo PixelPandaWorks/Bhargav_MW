@@ -28,7 +28,7 @@ export function Navigation() {
     { href: "/graphics", label: "Graphics" },
     { href: "/events", label: "Events" },
     { href: "https://github.com/PixelPandaWorks", label: "Projects" },
-    
+    { href: "https://arcade-games-pearl.vercel.app/", label: "Games" },
   ]
 
   if (!isHome) {

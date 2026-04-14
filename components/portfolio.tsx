@@ -37,6 +37,12 @@ const categories = [
     image: "/concert-event-management.jpg",
     description: "Logistics & Motion",
   },
+  {
+    title: "Games",
+    href: "https://arcade-games-pearl.vercel.app/",
+    image: "/arcade-games-interface.png",
+    description: "Interactive Experiences",
+  },
 ]
 
 function PortfolioCard({ category, index }: { category: typeof categories[0], index: number }) {
