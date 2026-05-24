@@ -14,6 +14,9 @@ const videoCategories = [
     videos: [
       { id: "ai1", title: "AI Concept", src: "https://drive.google.com/file/d/1WVSMy2cY7OB9qwAwp7a6HSWsekBA16f7/preview", type: "iframe" },
       { id: "ai2", title: "Motion Sequence", src: "https://drive.google.com/file/d/16i6WOKHkI9NmTVGA3btiuH8fkW4PFBdn/preview", type: "iframe" },
+      { id: "mg1", title: "Motion Graphic 1", src: "https://drive.google.com/file/d/1wHy6ZXfL9fe7ZlQX3tABBcsFXD8SwtFW/preview", type: "iframe" },
+      { id: "mg2", title: "Motion Graphic 2", src: "https://drive.google.com/file/d/1tdoLWOiWfS-Uks3nXCufDE77W9JLo4qb/preview", type: "iframe" },
+      { id: "mg3", title: "Motion Graphic 3", src: "https://drive.google.com/file/d/1pYXCLOKvasx_roM9kDTqvDEMAw3G6mES/preview", type: "iframe" },
     ]
   },
   {
@@ -66,6 +69,13 @@ const videoCategories = [
     videos: [
       { id: "b1", title: "Business Promo", src: "https://drive.google.com/file/d/1XR1BpKmilHjqTcJb4HgyPplCg7aAksRR/preview", type: "iframe" },
       { id: "b2", title: "Corporate Video", src: "https://drive.google.com/file/d/1Q-7Q_HxYF0JhKc5prm8HdppGBJ16wjnz/preview", type: "iframe" },
+    ]
+  },
+  {
+    title: "Branding",
+    aspect: "aspect-[4/5]",
+    videos: [
+      { id: "br1", title: "Branding Video", src: "https://drive.google.com/file/d/1TflgsaV3P-mZqyOaYJZJ9LQfKeUgIgHk/preview", type: "iframe" },
     ]
   }
 ]
